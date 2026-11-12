@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlaceWise | Student Placement Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">P</div><div><b>PlaceWise</b><small>PLACEMENT PORTAL</small></div></div>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav">
+        <button class="nav-item active" data-page="overview"><span>▦</span> Overview</button>
+        <button class="nav-item" data-page="students"><span>♙</span> Students</button>
+        <button class="nav-item" data-page="drives"><span>◈</span> Placement drives</button>
+        <button class="nav-item" data-page="internships"><span>▤</span> Internships</button>
+        <button class="nav-item" data-page="applications"><span>↗</span> Applications</button>
+        <button class="nav-item" data-page="placements"><span>✦</span> Placements</button>
+        <button class="nav-item" data-page="companies"><span>▣</span> Companies</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">?</div><b>Need some help?</b><p>Explore the placement portal and track your progress.</p><button id="helpBtn">View guide <span>→</span></button></div>
+        <div class="profile-mini"><div class="avatar">CB</div><div><b>Chaya B.L</b><small>Student account</small></div><span class="dots">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuBtn">☰</button>
+        <div class="crumb">Workspace <span>/</span> <b id="crumbTitle">Overview</b></div>
+        <div class="top-actions"><button class="icon-btn" title="Notifications" id="notificationBtn">♧<i></i></button><div class="top-avatar">CB</div></div>
+      </header>
+      <div class="page-wrap">
+        <section class="page active" id="page-overview">
+          <div class="welcome-row"><div><div class="eyebrow">SUNDAY, 08 NOVEMBER 2026</div><h1>Good afternoon, Chaya <span>✦</span></h1><p class="subtext">Here's what's happening with placements today.</p></div><button class="primary-btn" data-goto="drives">Explore opportunities <span>↗</span></button></div>
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-top"><span>Total students</span><span class="stat-icon lilac">♙</span></div><strong>5</strong><small><em>+2.4%</em> from last semester</small><div class="sparkline purple">▁▂▂▃▂▄▅▆</div></article>
+            <article class="stat-card"><div class="stat-top"><span>Active opportunities</span><span class="stat-icon blue">◈</span></div><strong>8</strong><small><em>5 drives</em> · 3 internships</small><div class="sparkline blue-line">▁▂▃▂▄▅▄▆</div></article>
+            <article class="stat-card"><div class="stat-top"><span>Applications submitted</span><span class="stat-icon peach">↗</span></div><strong>4</strong><small><em>2 shortlisted</em> this month</small><div class="sparkline orange">▁▂▂▄▃▅▆▅</div></article>
+            <article class="stat-card"><div class="stat-top"><span>Students placed</span><span class="stat-icon green">✦</span></div><strong>1</strong><small><em>20%</em> placement rate</small><div class="sparkline green-line">▁▁▂▂▃▃▄▅</div></article>
+          </div>
+          <div class="content-grid">
+            <section class="panel opportunities-panel"><div class="panel-heading"><div><h2>Upcoming opportunities</h2><p>Explore roles that match your goals.</p></div><button class="text-btn" data-goto="drives">View all <span>→</span></button></div><div id="featuredDrives" class="opportunity-list"></div></section>
+            <section class="panel activity-panel"><div class="panel-heading"><div><h2>Application activity</h2><p>Recent updates on your applications.</p></div><button class="text-btn" data-goto="applications">View all <span>→</span></button></div><div id="recentActivity" class="activity-list"></div></section>
+          </div>
+          <section class="panel quick-panel"><div class="panel-heading"><div><h2>Placement snapshot</h2><p>A quick look at student placement status.</p></div><span class="soft-pill">Graduating batch · 2029</span></div><div class="snapshot"><div class="snapshot-number"><strong>20%</strong><span>Placement rate</span></div><div class="progress-area"><div class="progress-label"><span>Placed students</span><b>1 of 5</b></div><div class="progress"><i style="width:20%"></i></div><div class="progress-legend"><span><i class="dot green-dot"></i> Placed <b>1</b></span><span><i class="dot gray-dot"></i> Not placed <b>4</b></span></div></div></div></section>
+        </section>
+
+        <section class="page" id="page-students">
+          <div class="page-heading"><div><div class="eyebrow">PEOPLE DIRECTORY</div><h1>Students</h1><p class="subtext">View student profiles, academic details and skills.</p></div><button class="primary-btn" id="addStudentBtn">＋ Add student</button></div>
+          <div class="toolbar"><div class="search-box"><span>⌕</span><input id="studentSearch" placeholder="Search by name, email or department..." /></div><select id="departmentFilter"><option value="">All departments</option><option>CSE</option><option>ISE</option><option>ECE</option><option>AIML</option></select><select id="statusFilter"><option value="">All statuses</option><option>Placed</option><option>Not Placed</option></select></div>
+          <div class="panel table-panel"><div class="table-title"><div><h2>All students <span class="count" id="studentCount">5</span></h2><p>Student records from the placement database</p></div><button class="outline-btn" id="exportStudents">↓ Export CSV</button></div><div class="table-scroll"><table><thead><tr><th>STUDENT</th><th>DEPARTMENT</th><th>CGPA</th><th>GRADUATION</th><th>SKILLS</th><th>STATUS</th></tr></thead><tbody id="studentsTable"></tbody></table></div></div>
+        </section>
+
+        <section class="page" id="page-drives">
+          <div class="page-heading"><div><div class="eyebrow">CAREER OPPORTUNITIES</div><h1>Placement drives</h1><p class="subtext">Find your next opportunity and check your eligibility.</p></div><div class="role-count"> <b>5</b> open drives</div></div>
+          <div class="toolbar"><div class="search-box"><span>⌕</span><input id="driveSearch" placeholder="Search company or job role..." /></div><select id="driveSort"><option value="date">Sort: Upcoming date</option><option value="package">Highest package</option></select></div>
+          <div class="drive-grid" id="driveGrid"></div>
+        </section>
+
+        <section class="page" id="page-internships">
+          <div class="page-heading"><div><div class="eyebrow">GET INDUSTRY EXPERIENCE</div><h1>Internships</h1><p class="subtext">Build practical experience with these internship roles.</p></div><div class="role-count"><b>3</b> opportunities</div></div>
+          <div class="drive-grid" id="internshipGrid"></div>
+        </section>
+
+        <section class="page" id="page-applications">
+          <div class="page-heading"><div><div class="eyebrow">APPLICATION TRACKER</div><h1>Applications</h1><p class="subtext">Keep track of every opportunity you've applied for.</p></div><button class="outline-btn" id="exportApplications">↓ Export CSV</button></div>
+          <div class="mini-stats"><div><span>All applications</span><b>4</b></div><div><span>Applied</span><b>3</b></div><div><span>Selected</span><b>1</b></div><div><span>Shortlisted</span><b>0</b></div></div>
+          <div class="toolbar"><div class="search-box"><span>⌕</span><input id="applicationSearch" placeholder="Search student or company..." /></div><select id="applicationFilter"><option value="">All statuses</option><option>Applied</option><option>Shortlisted</option><option>Selected</option><option>Rejected</option></select></div>
+          <div class="panel table-panel"><div class="table-scroll"><table><thead><tr><th>APPLICATION</th><th>STUDENT</th><th>COMPANY & ROLE</th><th>APPLIED ON</th><th>PACKAGE</th><th>STATUS</th></tr></thead><tbody id="applicationsTable"></tbody></table></div></div>
+        </section>
+
+        <section class="page" id="page-placements">
+          <div class="page-heading"><div><div class="eyebrow">SUCCESS STORIES</div><h1>Placements</h1><p class="subtext">Students who have successfully secured an offer.</p></div></div>
+          <div class="placement-banner"><div><span>PLACEMENT HIGHLIGHT</span><h2>Every great career starts with an opportunity.</h2><p>Celebrate student achievements and successful offers.</p></div><div class="banner-art">✦</div></div>
+          <div class="panel table-panel"><div class="table-title"><div><h2>Placed students</h2><p>Confirmed placement records</p></div></div><div class="table-scroll"><table><thead><tr><th>STUDENT</th><th>COMPANY</th><th>ROLE</th><th>PACKAGE</th><th>OFFER DATE</th></tr></thead><tbody id="placementsTable"></tbody></table></div></div>
+        </section>
+
+        <section class="page" id="page-companies">
+          <div class="page-heading"><div><div class="eyebrow">EMPLOYER NETWORK</div><h1>Companies</h1><p class="subtext">Explore organizations hiring from your campus.</p></div></div>
+          <div class="toolbar"><div class="search-box"><span>⌕</span><input id="companySearch" placeholder="Search company or industry..." /></div></div>
+          <div class="company-grid" id="companyGrid"></div>
+        </section>
+        <footer>© 2026 PlaceWise <span>Built for smarter campus placements</span></footer>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal"><button class="modal-close" id="modalClose">×</button><div class="modal-icon">↗</div><div id="modalContent"></div></div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
